@@ -9,9 +9,17 @@
 </template>
 
 <script>
-import { defineComponent } from 'vue'
+import { defineComponent } from "vue";
+import { api } from "boot/axios";
 
 export default defineComponent({
-  name: 'IndexPage'
-})
+  name: "IndexPage",
+
+  setup() {
+    api
+      .get("/")
+      .then((res) => console.log(res))
+      .catch((err) => console.log(err));
+  },
+});
 </script>
