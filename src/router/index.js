@@ -37,5 +37,31 @@ export default route(function ({ store }) {
     history: createHistory(process.env.VUE_ROUTER_BASE),
   });
 
+  Router.beforeEach(async (to, from) => {
+    let softNav = true;
+
+    if (!from.name) {
+      softNav = false;
+      try {
+        const user = await api.get("/api/validate");
+        if (user) appStore.logIn(user.data);
+      } catch (err) {
+        console.log(err.response.data.message);
+      }
+    }
+    if (to.meta.requiresAuth) {
+      if (!appStore.loggedIn) {
+        console.log("Not logged in, taking you home...");
+        return softNav
+          ? false
+          : {
+              name: "Home",
+            };
+      }
+    }
+
+    return true;
+  });
+
   return Router;
 });

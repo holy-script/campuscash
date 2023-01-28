@@ -2,7 +2,7 @@
   "name": "campuscash",
   "version": "0.0.1",
   "description": "A social commerce webapp for local meetups and trades among students on an institution's campus",
-  "productName": "$$ Campus Cash $$",
+  "productName": "🤝 Campus Cash 💰",
   "author": "Palash Johri <palashjohricool@gmail.com>",
   "private": true,
   "scripts": {
@@ -11,6 +11,8 @@
     "test": "echo \"No test specified\" && exit 0"
   },
   "dependencies": {
+    "@dicebear/collection": "^5.2.0",
+    "@dicebear/core": "^5.2.0",
     "@quasar/extras": "^1.0.0",
     "axios": "^1.2.3",
     "dotenv": "^16.0.3",
