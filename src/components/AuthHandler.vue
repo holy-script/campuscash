@@ -1,10 +1,11 @@
 <template>
   <div v-if="showSettings">
     <q-btn
-      no-caps
       push
-      color="primary"
-      label="Let's Get Started!"
+      color="yellow"
+      text-color="black"
+      rounded
+      label="Explore Now"
       @click="show()"
     />
   </div>

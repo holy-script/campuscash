@@ -10,6 +10,14 @@
         </q-avatar>
 
         <q-toolbar-title class="knewave">Campus Cash</q-toolbar-title>
+
+        <q-btn
+          class="unbounded"
+          label="Semester Sale 💣"
+          color="purple-10"
+          rounded
+          @click="notifySale"
+        />
       </q-toolbar>
     </q-header>
 
@@ -22,8 +30,9 @@
 </template>
 
 <script>
-import { defineComponent, ref } from "vue";
+import { defineComponent } from "vue";
 import LogoutHandler from "components/LogoutHandler.vue";
+import { useQuasar } from "quasar";
 
 export default defineComponent({
   name: "MainLayout",
@@ -31,11 +40,37 @@ export default defineComponent({
   components: {
     LogoutHandler,
   },
+
+  setup() {
+    const $q = useQuasar();
+
+    const notifySale = () => {
+      $q.notify({
+        message: "Log In and check out all the back to school offers now!",
+        progress: true,
+        classes: ["unbounded"],
+      });
+    };
+
+    return {
+      notifySale,
+    };
+  },
 });
 </script>
 
 <style lang="sass">
 .knewave
-  font-family: 'Knewave', sans-serif
+  font-family: 'Unbounded', sans-serif
+  font-weight: bold
   color: #f93366
+body::-webkit-scrollbar-track
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3)
+  background-color: #F5F5F5
+body::-webkit-scrollbar
+  width: 10px
+  background-color: #F5F5F5
+body::-webkit-scrollbar-thumb
+  background-color: #000000
+  border: 2px solid #555555
 </style>
