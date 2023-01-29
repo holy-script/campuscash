@@ -100,7 +100,7 @@
             id="featureText"
             class="text-white unbounded absolute-center"
           >
-            <div class="text-center text-h6 q-mb-md">HELP OTHERS, MAKE MONEY</div>
+            <div class="text-center text-h6 q-mb-md">HELP OTHERS <br>&amp;<br> MAKE MONEY</div>
             This platform offers incentives for students who list items, such as being featured on the homepage or receiving a discount on their next purchase.
             <div class="q-mt-md text-h2">
               🤑
@@ -114,7 +114,6 @@
 
 <script>
 import { defineComponent } from "vue";
-import { api } from "boot/axios";
 import AuthHandler from "components/AuthHandler.vue";
 import heroImg from "assets/images/juicy-man-dancing.png";
 import imgWoman from "assets/images/martina-woman-showing-something-with-her-hands.png";
@@ -130,11 +129,6 @@ export default defineComponent({
   },
 
   setup() {
-    api
-      .get("/")
-      .then((res) => console.log(res))
-      .catch((err) => console.log(err));
-
     return {
       heroImg,
       imgWoman,
@@ -163,8 +157,6 @@ export default defineComponent({
   left: 50%
   transform: translate(-30%, -50%)
   border-radius: 50%
-.unbounded
-  font-family: Unbounded, sans-serif
 #heroText
   position: absolute
   width: 55vw

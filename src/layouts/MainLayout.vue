@@ -22,7 +22,15 @@
     </q-header>
 
     <q-page-container>
-      <router-view />
+      <router-view v-slot="{ Component }">
+        <transition
+          enter-active-class="control animated slideInRight"
+          leave-active-class="control animated slideOutLeft"
+          mode="out-in"
+        >
+          <component :is="Component" />
+        </transition>
+      </router-view>
     </q-page-container>
 
     <LogoutHandler />
@@ -64,6 +72,8 @@ export default defineComponent({
   font-family: 'Unbounded', sans-serif
   font-weight: bold
   color: #f93366
+.unbounded
+  font-family: Unbounded, sans-serif
 body::-webkit-scrollbar-track
   -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3)
   background-color: #F5F5F5
@@ -73,4 +83,9 @@ body::-webkit-scrollbar
 body::-webkit-scrollbar-thumb
   background-color: #000000
   border: 2px solid #555555
+.control
+  animation-duration: 1s
+  border: 3px solid #001D3D
+body
+  background: #e29d30
 </style>
