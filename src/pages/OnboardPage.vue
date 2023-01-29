@@ -209,6 +209,7 @@ export default defineComponent({
     onMounted(() => {
       if (store.onboarded) {
         $q.notify({
+          classes: ["unbounded"],
           message: "Already completed this step, moving to dashboard...",
           timeout: 1500,
           progress: true,
@@ -422,6 +423,7 @@ export default defineComponent({
               timeout: 1500,
               progress: true,
               color: "dark",
+              classes: ["unbounded"],
             });
             router.push({
               name: "Dashboard",
@@ -429,8 +431,10 @@ export default defineComponent({
           })
           .catch(
             (err) =>
-              $q.notify(err.response.data.message) &&
-              console.log(err.response.status)
+              $q.notify({
+                message: err.response.data.message,
+                classes: ["unbounded"],
+              }) && console.log(err.response.status)
           );
       } else {
         $q.notify({
@@ -438,6 +442,7 @@ export default defineComponent({
           timeout: 1500,
           progress: true,
           color: "dark",
+          classes: ["unbounded"],
         });
       }
     };

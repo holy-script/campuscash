@@ -58,7 +58,7 @@ app.post("/auth/signup", async (req, res) => {
     const msg = {
       to: req.body.email,
       from: process.env.MAIL_ID,
-      subject: "CampusCash - Account Verification 👋",
+      subject: "CashCampus - Account Verification 👋",
       text: `Welcome to our community! Please enter this code to verify your account - ${rand}`,
     };
     try {
@@ -190,7 +190,7 @@ app.post("/api/onboard", [jwtAuth.verifyToken], async (req, res) => {
 
 app.use("/", async (req, res) => {
   res.send(
-    "<div style='text-align: center;position: absolute;transform: translate(-50%, -50%);top: 50%;left: 50%;'><h3>Hello, world!</h3><h4>This is the back end server for <a href='https://campuscash.us'>Campus Cash</a><h4></div>"
+    "<div style='text-align: center;position: absolute;transform: translate(-50%, -50%);top: 50%;left: 50%;'><h3>Hello, world!</h3><h4>This is the back end server for <a href='https://cashcamp.us'>Cash Campus</a><h4></div>"
   );
 });
 

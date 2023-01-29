@@ -54,13 +54,15 @@ export default defineComponent({
             otp: otpVal.value,
           })
           .then((res) => {
-            $q.notify(res.data.message);
+            $q.notify({ message: res.data.message, classes: ["unbounded"] });
             store.verify();
           })
           .catch(
             (err) =>
-              $q.notify(err.response.data.message) &&
-              console.log(err.response.status)
+              $q.notify({
+                message: err.response.data.message,
+                classes: ["unbounded"],
+              }) && console.log(err.response.status)
           );
       });
     };

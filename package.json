@@ -2,7 +2,7 @@
   "name": "campuscash",
   "version": "0.0.1",
   "description": "A social commerce webapp for local meetups and trades among students on an institution's campus",
-  "productName": "🤝 Campus Cash 💰",
+  "productName": "🤝 Cash Campus 💰",
   "author": "Palash Johri <palashjohricool@gmail.com>",
   "private": true,
   "scripts": {

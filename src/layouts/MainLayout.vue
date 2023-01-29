@@ -5,11 +5,14 @@
         <q-avatar>
           <img
             src="~assets/campuscash-logo.png"
-            alt="CampusCash Logo"
+            alt="CashCampus Logo"
           >
         </q-avatar>
 
-        <q-toolbar-title class="knewave">Campus Cash</q-toolbar-title>
+        <q-toolbar-title
+          class="unbounded text-weight-bolder"
+          style="color: #f93366;"
+        >Cash Campus</q-toolbar-title>
 
         <q-btn
           class="unbounded"
@@ -69,9 +72,7 @@ export default defineComponent({
 
 <style lang="sass">
 .knewave
-  font-family: 'Unbounded', sans-serif
-  font-weight: bold
-  color: #f93366
+  font-family: 'Knewave', sans-serif
 .unbounded
   font-family: Unbounded, sans-serif
 body::-webkit-scrollbar-track

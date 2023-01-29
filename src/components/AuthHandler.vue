@@ -62,11 +62,13 @@ export default defineComponent({
           password: pwdVal.value,
         });
         $q.notify({
+          classes: ["unbounded"],
           message: user.data.message,
           color: "dark",
         });
       } catch (error) {
         $q.notify({
+          classes: ["unbounded"],
           message: error.response.data.message,
           progress: true,
           color: "dark",
@@ -81,6 +83,7 @@ export default defineComponent({
           password: pwdVal.value,
         });
         $q.notify({
+          classes: ["unbounded"],
           message: user.data.message,
           color: "dark",
         });
@@ -90,6 +93,7 @@ export default defineComponent({
         });
       } catch (error) {
         $q.notify({
+          classes: ["unbounded"],
           message: error.response.data.message,
           color: "dark",
           progress: true,
@@ -101,6 +105,7 @@ export default defineComponent({
       try {
         const res = await api.delete("/api/delete");
         $q.notify({
+          classes: ["unbounded"],
           message: res.data.message,
           color: "dark",
         });
@@ -110,6 +115,7 @@ export default defineComponent({
         });
       } catch (error) {
         $q.notify({
+          classes: ["unbounded"],
           message: error.response.data.message,
           color: "dark",
           progress: true,
@@ -125,11 +131,13 @@ export default defineComponent({
           newPassword: pwdVal.value,
         });
         $q.notify({
+          classes: ["unbounded"],
           message: res.data.message,
           color: "dark",
         });
       } catch (error) {
         $q.notify({
+          classes: ["unbounded"],
           message: error.response.data.message,
           color: "dark",
           progress: true,
@@ -141,6 +149,7 @@ export default defineComponent({
 
     const notifier = (arr, position) => {
       let notif = $q.notify({
+        classes: ["unbounded"],
         position,
         group: false,
         message: arr.pop(),
@@ -208,6 +217,7 @@ export default defineComponent({
         );
       }
       const toggle = $q.notify({
+        classes: ["unbounded"],
         color: "dark",
         position: "bottom",
         message: "Password Visibility",

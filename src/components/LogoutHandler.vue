@@ -44,6 +44,7 @@ export default defineComponent({
         message: "Are you sure about logging out?",
         cancel: true,
         persistent: true,
+        class: ["unbounded"],
       }).onOk(() => {
         api.post("/auth/logout").then((res) => {
           $q.notify({
