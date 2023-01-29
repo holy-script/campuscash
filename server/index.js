@@ -188,6 +188,29 @@ app.post("/api/onboard", [jwtAuth.verifyToken], async (req, res) => {
   }
 });
 
+app.get("/api/products", [jwtAuth.verifyToken], async (req, res) => {
+  const products = await prisma.listing.findMany();
+  res.status(200).send({ message: "Verified!", products });
+});
+
+app.post("/api/products", [jwtAuth.verifyToken], async (req, res) => {
+  try {
+    await prisma.listing.create({
+      data: {
+        name: req.body.name,
+        creator: req.userEmail,
+        images: req.body.images,
+        about: req.body.about,
+      },
+    });
+    res.status(200).send({
+      message: "Product was listed successfully!",
+    });
+  } catch (err) {
+    res.status(500).send({ message: err.message });
+  }
+});
+
 app.use("/", async (req, res) => {
   res.send(
     "<div style='text-align: center;position: absolute;transform: translate(-50%, -50%);top: 50%;left: 50%;'><h3>Hello, world!</h3><h4>This is the back end server for <a href='https://cashcamp.us'>Cash Campus</a><h4></div>"

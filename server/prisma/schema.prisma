@@ -21,3 +21,11 @@ model User {
   profile   Json?
   age       Int?
 }
+
+model Listing {
+  id      BigInt   @id @default(autoincrement())
+  name    String
+  images  String[]
+  about   String
+  creator String
+}

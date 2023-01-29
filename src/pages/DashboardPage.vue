@@ -2,9 +2,13 @@
   <q-page class="text-center bg-red-5 unbounded">
     <div class="text-h3 text-indigo-7 knewave q-py-md">Shopping Feed</div>
     <div class="column items-center">
-      <q-card class="q-my-md my-card bg-grey-1 shadow-up-5">
+      <q-card
+        v-for="(prod, index) in products"
+        :key="index"
+        class="q-my-md my-card bg-grey-1 shadow-up-5"
+      >
         <q-card-section>
-          <q-img src="https://cdn.quasar.dev/img/mountains.jpg" />
+          <q-img :src="prod.image" />
         </q-card-section>
 
         <q-separator />
@@ -12,8 +16,11 @@
         <q-card-section>
           <div class="row items-center no-wrap">
             <div class="col">
-              <div class="text-h6">Product Name</div>
-              <div class="text-subtitle2">Posted By</div>
+              <div class="text-h6">{{ prod.name }}</div>
+              <div class="text-subtitle2">Posted By <span
+                  style="border-radius: 17px;"
+                  class="bg-pink q-px-md"
+                >{{ prod.creator }}</span></div>
             </div>
 
             <div class="col-auto">
@@ -44,7 +51,7 @@
           </div>
 
           <div class="q-my-md">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            {{ prod.about }}
           </div>
         </q-card-section>
 
@@ -147,10 +154,36 @@ export default defineComponent({
     const cartCount = ref(0);
     const showAdder = ref(false);
 
+    const products = [
+      {
+        name: "Basics of Calculus 7th Edition (Good Condition)",
+        creator: "bobbydoesmath@calc.edu",
+        about:
+          "In almost a brand new state, the Basics of Calculus Simplified (For Std 11th and 12th Science, Commerce and Arts) by Target Publications is an extensively compiled handbook. The prime objective here is to introduce the subject of Calculus among junior college students in the most lucid manner in order to impart fundamental knowledge and strengthen their concept base. The idea during the compilation process of this book was to offer students with a new and simplified perspective and dispel any apprehensions with regards to this subject. ",
+        image: "https://m.media-amazon.com/images/I/71HeLjObsGL.jpg",
+      },
+      {
+        name: "Lenovo V15 Intel Celeron (Old But Working)",
+        creator: "dantheengineer@eng.edu",
+        about:
+          "This is a laptop I have used for 2 years, but still works just fine. Processor & Memory: Intel, Celeron_B830, Celeron N4020, 1.1 GHz, 4GB RAM, RAM Expandable up to 0GB. Lenovo’s story has always been about shaping computing intelligence to create a better world. With the world’s widest portfolio of technology products, we deliver our vision of Smarter Technology for All through products, solutions, software, and services that individuals, communities, businesses, and entire populations need to fulfill their potential.",
+        image:
+          "https://m.media-amazon.com/images/I/41f0zShABaL._SY300_SX300_QL70_FMwebp_.jpg",
+      },
+      {
+        name: "(Used But Excellent Condition) LCD Display Digital Multi-meter Digital Multimeter",
+        creator: "prof@robot.edu",
+        about:
+          "This is my own personal tool that I have maintained really well. Small multimeter for your day to day needs. If you have basic knowledge about multimeters you can try this small multimeter for basic continuity checks and voltage measurements. When testing the current more than 200ma, connect the red test lead to oadc jack and black test lead to com jack",
+        image: "https://m.media-amazon.com/images/I/81y3KDvvgWL._SX466_.jpg",
+      },
+    ];
+
     return {
       iconCart,
       cartCount,
       showAdder,
+      products,
     };
   },
 });
